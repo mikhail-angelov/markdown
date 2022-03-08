@@ -70,7 +70,7 @@
 				return ''; // use external default escaping
 			}
 		});
-		markdown.core.ruler.after('block', 'diagram', (state)=>state.tokens.forEach(renderDiagrams))
+		markdown.core.ruler.after('block', 'diagram', (state) => state.tokens.forEach(renderDiagrams))
 		const text = document.getElementById("text");
 		const preview = document.getElementById("markdown");
 		const offscreen = document.getElementById("offscreen");
@@ -81,16 +81,12 @@
 		render();
 
 		async function renderDiagrams(token) {
-			if (token.type === 'inline' && token.content) {
-				let match = null;
-				do {
-					match = token.content.match(/^(activityDiagram|componentDiagram|erDiagram|mindmap|sequenceDiagram)/)
-					if (match) {
-						pintora.default.renderTo(token.content, { container: offscreen, renderer: 'svg' })
-						token.content = offscreen.innerHTML
-						offscreen.innerHTML = ''
-					}
-				} while (match)
+			if (token.type === 'fence' && token.params === 'pintora' && token.content) {
+				pintora.default.renderTo(token.content, { container: offscreen, renderer: 'svg' })
+				token.content = offscreen.innerHTML
+				token.type = 'inline'
+				token.children = []
+				offscreen.innerHTML = ''
 			}
 		}
 	</script>
