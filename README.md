@@ -7,7 +7,7 @@ diagrams is based on [pintora](https://github.com/hikerpig/pintora)
 
 You can draw diagram by annotating `pintora` for the code fence
 ~~~markdown
-```pindora
+```pintora
 sequenceDiagram
   State1-->>State2: action1
   @note over State1,State2: some note
