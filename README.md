@@ -3,10 +3,10 @@
 markdown is base on [remarkable engine](https://github.com/jonschlinkert/remarkable)
 diagrams is based on [pintora](https://github.com/hikerpig/pintora)
 
-## [online](https://mikhail-angelov.github.io/markdown)
+## [Online markdown editor](https://mikhail-angelov.github.io/markdown)
 
-to draw diagram use \```prindora tag
-```code
+You can draw diagram by annotating `pintora` for the code fence
+~~~markdown
 ```pindora
 sequenceDiagram
   State1-->>State2: action1
@@ -15,5 +15,6 @@ sequenceDiagram
   multiline
   note
   @end_note
-\ ```
 ```
+~~~
+![markdown preview](https://raw.githubusercontent.com/mikhail-angelov/markdown/3f38128ea3a06376950a9bb6ecca6131157c7905/screen.png)
